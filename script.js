@@ -2,7 +2,27 @@
 var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword) ;{
+function writePassword() {
+  var password = generatePassword();
+  var passwordType = prompt("Enter the type of password you want to generate (upper, lower, numbers, letter and numbers, or all types):");
+  var password = generatePassword(passwordLength, passwordType);
+  var password = ("Your password is: " + password);
+
+  password.valueOf = password;
+  return password;
+}
+
+(function () {
+  console.log("Your password is: " + password);
+})();
+
+ return password;
+}
+
+var password = writePassword(8);
+var passwordText = document.querySelector("#password");
+passwordText.value = "Your password is: " + password;
 
 // var userInput = prompt("Enter your name:");
 // console.log("Hello, " + userInput);
@@ -40,8 +60,10 @@ function generatePassword(length, type) {
 
   if (type === "numbers") {
     possibleCharacters = "0123456789";
-  } else if (type === "letters") {
-    possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  } else if (type === "upper") {
+    possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  } else if (type === "lower") {
+    possibleCharacters = "abcdefghijklmnopqrstuvwxyz"
   } else if (type === "letters and numbers") {
     possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   } else {
@@ -55,24 +77,20 @@ function generatePassword(length, type) {
 
   return password;
 }
-function writePassword() {
-  var password = generatePassword();
-var passwordType = prompt("Enter the type of password you want to generate (letters, numbers, letter and numbers, or all types):");
-var password = generatePassword(passwordLength, passwordType);
-console.log("Your password is: " + password);
-var password = ("Your password is: " + password);
-
-  password.valueOf = password;
-}
-
 // function writePassword() {
 //   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+// var passwordType = prompt("Enter the type of password you want to generate (upper, lower, numbers, letter and numbers, or all types):");
+// var password = generatePassword(passwordLength, passwordType);
+// console.log("Your password is: " + password);
+// var password = ("Your password is: " + password);
 
-//   passwordText.value = password;
+//   password.valueOf = password;
+//   return password;
 // }
 
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-
-
-
+  passwordText.value = password;
+}
