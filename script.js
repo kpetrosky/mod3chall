@@ -12,13 +12,13 @@ function writePassword() {
   password.valueOf = password;
   return password;
 }
-
+}
 (function () {
   console.log("Your password is: " + password);
 })();
 
- return password;
-}
+//  return password;
+
 
 var password = writePassword(8);
 var passwordText = document.querySelector("#password");
