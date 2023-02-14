@@ -19,4 +19,5 @@ THEN the password is either displayed in an alert or written to the page
 
 
 Set up password generator
-use will be able to set up 
+user will be able to set up choices such as number of characters, upper, lower, numbers and special characters
+once selected the program will give a random password
