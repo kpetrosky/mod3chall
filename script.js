@@ -12,26 +12,31 @@ var generateBtn = document.querySelector("#generate");
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword); {
-  function writePassword() {
-    var password = generatePassword();
-    var passwordType = prompt("Enter the type of password you want to generate (upper, lower, numbers, letter and numbers, or all types):");
-    var password = generatePassword(passwordLength, passwordType);
-    var password = ("Your password is: " + password);
+//chose what type of characters needed
 
-    password.valueOf = password;
-    return password;
+function writePassword() {
+  var passwordLength = prompt("Enter the desired password length (minimum 8 characters):");
+  if (passwordLength < 8) {
+    passwordLength = 8;
   }
+  var passwordType = prompt("Enter the type of password you want to generate (upper, lower, numbers, letter and numbers, or all types):");
+  var password = generatePassword(passwordLength, passwordType);
+  // password = "Your password is: " + password;
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+
 }
 
-var passwordLength = prompt("Enter the desired password length (minimum 8 characters):");
-if (passwordLength < 8) {
-  passwordLength = 8;
-}
+
+// var passwordLength = prompt("Enter the desired password length (minimum 8 characters):");
+// if (passwordLength < 8) {
+//   passwordLength = 8;
+// }
+//has to been no less than 8 characters
 function generatePassword(length, type) {
   var password = "";
   var possibleCharacters = "";
-  
+
 
   if (type === "numbers") {
     possibleCharacters = "0123456789";
@@ -53,16 +58,18 @@ function generatePassword(length, type) {
   return password;
 }
 
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  (function () {
-    console.log("Your password is: " + password);
-  })();
-  passwordText.value = password;
-}
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+// (function () {
+//   console.log("Your password is: " + password);
+// })();
+//   passwordText.value = password;
+// }
 
 
-var password = writePassword(8);
-var passwordText = document.querySelector("#password");
-passwordText.value = password;
+// var password = writePassword(8);
+// var passwordText = document.querySelector("#password");
+// passwordText.value = password;
+
+generateBtn.addEventListener("click", writePassword); 
